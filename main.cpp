@@ -76,7 +76,27 @@ class DBase{
             return "404 not Found";
         }
 
+        // fungsi untuk update file
+        void upate(){
+            // code here
+        }
+
+        // fungsi untuk delete file
+        void deleteFile(){
+            // code here
+        }
+
+        // fungsi mencari file dari id / nama
+        void search(){
+            // code here
+        }
+
 };
+
+// fungsi untuk add file bagian menu
+void addData(){
+    // code here
+}
 
 int main(){
 
