@@ -41,7 +41,7 @@ class DBase{
         }
 
         // fungsi untuk save file
-        void save(Karyawan data){
+        void update(Karyawan data){
             DBase::out.open(DBase::fileName, ios::app);
             DBase::out << data.getDataKaryawan();
             out.close();
@@ -60,7 +60,7 @@ class DBase{
         }
 
         // fungsi untuk membaca single line of file
-        string readOne(string dataIn){
+        string src(string dataIn){
             // code here
             string output, buffer;
             DBase::in.open(DBase::fileName);
