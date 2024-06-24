@@ -2,14 +2,10 @@
 
 ## Algoritma 
 
-1. Mulai
-    Disini program pertama kali dirun.
-2. Menampilkan menu
-    Setelah program di jalankan petama yang akan dilakukan adalah menampilkan sebuah daftar menu. Menu menandakan sebuah program memiliki fitur tersebut.
-3. 
 
 ```js
 // kelas karyawan
+// fian
 class Karyawan:
     // Atribut karyawan
     id: int
@@ -35,6 +31,8 @@ class Karyawan:
 
 
 // kelas untuk database
+
+// khari
 class Dbase:
     // atribut database
     ofstream out // objek dari liblary fstream
@@ -45,12 +43,14 @@ class Dbase:
     constructor(namaFile):
         self.namaFile = namaFile
 
+    // meifa
     // fungsi untuk update data dari kelas karyawan
     function update(karyawan data):
         out.open(fileName, append) // mode append
         save(data.getDataKaryawan())
         out.close();
 
+    // putri
     // fungsi untuk mengahapus file
     function delete(id | nama):
             in.open(fileName)
@@ -64,6 +64,7 @@ class Dbase:
             in.close()
             print("404 not Found")
 
+    // novi
     // fungsi untuk membaca semua file file
     function readAllData(karyawan data):
         output, buffer string
@@ -78,6 +79,7 @@ class Dbase:
             
             print(output)
 
+    // zijah
     // fungsi untuk mencari data keryawan
     function search(id | nama):
         in.open(fileName)
@@ -87,6 +89,7 @@ class Dbase:
                 return output
                 in.close()
 
+    // nizar
     // fungsi untuk edit karyawan
     function edit(id, kaaryawan data):
         in.open(fileName)
@@ -102,6 +105,7 @@ class Dbase:
         print("404 not Found")
 
 
+// anom
 function menu():
     print("Menu Utama:")
     print("1. Tambah Karyawan")
