@@ -41,7 +41,7 @@ class DBase{
         }
 
         // fungsi untuk save file
-        void update(Karyawan data){
+        void updateData(Karyawan data){
             DBase::out.open(DBase::fileName, ios::app);
             DBase::out << data.getDataKaryawan();
             out.close();
@@ -98,8 +98,14 @@ void addData(){
     // code here
 }
 
+void menu(){
+
+    cout << "1, menambah data" << endl;
+}
+
 int main(){
 
+    menu();
     // user input
     string idk;
     cout << "Masukan ID: "; 
@@ -116,7 +122,15 @@ int main(){
     // buat objek karyawan
     Karyawan karyawan(idk, nama, tanggalLahir, alamat);
 
+
+    DBase database("dataKaryawan.txt");
+
+    database.updateData(karyawan);
+
+
     string dataKaryawan = karyawan.getDataKaryawan();
+    database.readAll();
+    
     cout << dataKaryawan << endl;
     return 0;
 }
