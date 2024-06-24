@@ -76,10 +76,6 @@ class DBase{
             return "404 not Found";
         }
 
-        // fungsi untuk update file
-        void upate(){
-            // code here
-        }
 
         // fungsi untuk delete file
         void deleteFile(){
@@ -130,6 +126,8 @@ int main(){
 
     string dataKaryawan = karyawan.getDataKaryawan();
     database.readAll();
+
+    cout << "hello"
     
     cout << dataKaryawan << endl;
     return 0;
