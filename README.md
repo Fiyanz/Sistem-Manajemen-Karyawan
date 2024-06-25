@@ -105,7 +105,7 @@ class Dbase:
         print("404 not Found")
 
 
-// anom
+
 function menu():
     print("Menu Utama:")
     print("1. Tambah Karyawan")
@@ -115,7 +115,8 @@ function menu():
     print("5. Tampilkan Daftar Karyawan")
     print("6. Keluar")
 
-// fungsi untuk menerima input dari user
+//anom
+//fungsi untuk menerima input dari user
 function inputDataKaryawan() -> str:
     id = input("Masukan ID: ")
     nama = input("Masukan Nama: ")
