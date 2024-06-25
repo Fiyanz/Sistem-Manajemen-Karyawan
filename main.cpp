@@ -59,7 +59,7 @@ class DBase{
             cout << output << endl;
         }
 
-        // fungsi untuk membaca single line of file
+        // fungsi untuk mencari data
         string src(string dataIn){
             // code here
             string output, buffer;
@@ -82,10 +82,11 @@ class DBase{
             // code here
         }
 
-        // fungsi mencari file dari id / nama
-        void search(){
+        // fungsi untuk edit file
+        void editData(){
             // code here
         }
+
 
 };
 
