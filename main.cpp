@@ -94,9 +94,14 @@ void addData(){
     // code here
 }
 
-void menu(){
+// fungsi unput user
+string inputUser(){
+    // code here 
+}
 
-    cout << "1, menambah data" << endl;
+// fungsi menu
+void menu(){
+    // code here
 }
 
 int main(){
@@ -127,8 +132,5 @@ int main(){
     string dataKaryawan = karyawan.getDataKaryawan();
     database.readAll();
 
-    cout << "hello"
-    
-    cout << dataKaryawan << endl;
     return 0;
 }

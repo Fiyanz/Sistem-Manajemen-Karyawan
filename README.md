@@ -130,8 +130,6 @@ function inputDataKaryawan() -> str:
 // main fungsi
 function main():
 
-
-
     while True:
         // menampilkan menu
         menu()
@@ -146,7 +144,7 @@ function main():
                 karyawan.add(inputDataKaryawan)
             case 2:
                 // delete data kryawan
-                deleteData = input("Masukan id/nama yang akan dihapus: )
+                deleteData = input("Masukan id/nama yang akan dihapus: ")
                 karyawan.delete(deleteData)
             case 3:
                 // mencari data
@@ -154,7 +152,7 @@ function main():
                 karyawan.search(searchData)
             case 4:
                 // edit data karyawan
-                editData = input("Masukan id/nama data yang akan di edit: )
+                editData = input("Masukan id/nama data yang akan di edit: ")
                 karyawan.edit(editData)
             case 5: 
                 // menampulkan data karyawan
