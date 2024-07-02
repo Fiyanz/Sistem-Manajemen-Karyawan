@@ -60,21 +60,54 @@ class DBase{
         }
 
         // fungsi untuk mencari data
-        string src(string dataIn){
-            // code here
-            string output, buffer;
-            DBase::in.open(DBase::fileName);
+        void src(string dataIn){
+        string buffer;
+        bool found = false;
+        in.open(fileName);
 
-            while (getline(DBase::in, output)){
-                
-                if(output.find(dataIn, 0) != string::npos){
-                    DBase::in.close();
-                    return output;
+        if(in.is_open()){
+
+            // Print headers
+            cout << left << setw(10) << "ID"
+                << left << setw(20) << "Nama"
+                << left << setw(15) << "Tanggal Lahir"
+                << left << setw(15) << "Pekerjaan"
+                << left << setw(20) << "Alamat"
+                << left << setw(10) << "Jam Kerja" << endl;
+            cout << string(90, '-') << endl; // separator line
+
+            while (getline(in, buffer)){
+                if(buffer.find(dataIn) != string::npos){
+                    // cout << buffer << endl;
+
+                    stringstream ss(buffer);
+                    string idk, nama, tanggalLahir, pekerjaan, alamat, jamKerja;
+
+                    getline(ss, idk, ',');
+                    getline(ss, nama, ',');
+                    getline(ss, tanggalLahir, ',');
+                    getline(ss, pekerjaan, ',');
+                    getline(ss, alamat, ',');
+                    getline(ss, jamKerja, ',');
+
+                    cout << left << setw(10) << idk
+                        << left << setw(20) << nama
+                        << left << setw(15) << tanggalLahir
+                        << left << setw(15) << pekerjaan
+                        << left << setw(20) << alamat
+                        << left << setw(10) << jamKerja << "\n" << endl;
+
+                    found = true;
                 }
             }
-            DBase::in.close();
-            return "404 not Found";
+            in.close();
+            if(!found){
+                cout << "404 not Found" << endl;
+            }
+        }else{
+            cout << "File tidak ditemukan" << endl;
         }
+    }
 
 
         // fungsi untuk delete file
