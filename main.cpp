@@ -140,31 +140,28 @@ void menu(){
 
 int main(){
 
-    menu();
-    // user input
-    string idk;
-    cout << "Masukan ID: "; 
-    getline(cin, idk);
-    string nama;
-    cout << "Masukan Nama: "; 
-    getline(cin, nama);
-    string tanggalLahir;
-    cout << "Masukan Tanggal Lahir: "; 
-    getline(cin, tanggalLahir);
-    string alamat;
-    cout << "Masukan Alamat: ";
-    getline(cin, alamat);
-    // buat objek karyawan
-    Karyawan karyawan(idk, nama, tanggalLahir, alamat);
-
-
     DBase database("dataKaryawan.txt");
 
-    database.updateData(karyawan);
+    while (true){
+        menu();
+        int userChoice;
+        cout << "Pilih Menu: ";
+        cin >> userChoice;
+        cin.ignore(); 
 
+        if (userChoice == 1){
+            Karyawan karyawan = inputUser();
+            database.updateData(karyawan);
+            cout << "Data Sudah Ditambah" << "\n" << endl;
+        } else if (userChoice == 2){
+            string idk;
+            cout << "Masukan ID Karyawan yang Ingin Diedit: ";
+            getline(cin, idk);
 
-    string dataKaryawan = karyawan.getDataKaryawan();
-    database.readAll();
-
+            Karyawan karyawan = inputUser();
+ 
+            database.edit(idk, karyawan);
+            cout << "Data Sudah Diedit" << endl;
+        }
     return 0;
 }
