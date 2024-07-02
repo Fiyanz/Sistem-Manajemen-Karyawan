@@ -162,6 +162,28 @@ int main(){
  
             database.edit(idk, karyawan);
             cout << "Data Sudah Diedit" << endl;
+        }else if (userChoice == 3){
+            string searchData;
+            cout << "Masukan Data yang Dicari: ";
+            getline(cin, searchData);
+            database.src(searchData);
+        } else if (userChoice == 4){
+            string deleteData;
+            cout << "Masukan Data yang Dihapus: ";
+            getline(cin, deleteData);
+            database.deleteFile(deleteData);
+            cout << "Data Sudah Dihapus" << endl;
+        } else if (userChoice == 5){
+            clear();
+            database.readAll();
+            // cout << "\n" << endl;
+        } else if (userChoice == 6){
+            clear();
+            break;
+        } else {
+            clear();
+            cout << "Pilihan tidak valid" << "\n" << endl;
         }
+    }
     return 0;
 }
