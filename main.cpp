@@ -112,7 +112,20 @@ class DBase{
 
         // fungsi untuk delete file
         void deleteFile(){
-            // code here
+            ifstream infile(fileName);
+        ofstream temp("temp.txt");
+        string line;
+
+        while (getline(infile, line)){
+            if (line.find(dataIn) == string::npos){
+                temp << line << endl;
+            }
+        }
+
+        infile.close();
+        temp.close();
+        remove(fileName.c_str());
+        rename("temp.txt", fileName.c_str());
         }
 
         // fungsi untuk edit file
