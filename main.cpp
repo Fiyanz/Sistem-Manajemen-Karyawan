@@ -3,6 +3,11 @@
 #include <fstream>
 #include <algorithm>
 
+#include <vector>
+#include <sstream>
+#include <iomanip>
+#include <cstdlib>
+
 using namespace std;
 
 // class karyawan
@@ -13,18 +18,22 @@ public:
     string nama;
     string idk;
     string tanggalLahir;
+    string pekerjaan;
     string alamat;
+    string jamKerja;
 
-    Karyawan(string idk, string nama, string tanggalLahir, string alamat){
+    Karyawan(string idk, string nama, string tanggalLahir,string pekerjaan, string alamat, string jamKerja){
         Karyawan::idk = idk;
         Karyawan::nama = nama;
         Karyawan::tanggalLahir = tanggalLahir;
+        Karyawan::pekerjaan = pekerjaan; 
         Karyawan::alamat = alamat;
+        Karyawan::jamKerja = jamKerja;
     }
 
     // fungsi untuk mengembalikan artibut karyawa / data karyawan
     string getDataKaryawan(){
-        return idk + "," + nama + "," + tanggalLahir + "," + alamat + "\n";
+        return idk + "," + nama + "," + tanggalLahir + "," + pekerjaan + "," + alamat + "," + jamKerja + "\n";
     }
 };
 
@@ -42,25 +51,54 @@ class DBase{
 
         // fungsi untuk save file
         void updateData(Karyawan data){
-            DBase::out.open(DBase::fileName, ios::app);
-            DBase::out << data.getDataKaryawan();
+            out.open(fileName, ios::app);
+            out << data.getDataKaryawan();
             out.close();
         }
 
         // fungsi untuk membaca seluruh data
         void readAll(){
-            string output, buffer;
-            DBase::in.open(DBase::fileName);
+        string line;
+        in.open(fileName);
 
-            while (!DBase::in.eof()){
-                getline(DBase::in, buffer);
-                output.append("\n" + buffer);
-            }
-            cout << output << endl;
+        if (!in.is_open()) {
+            cout << "File tidak ditemukan" << endl;
+            return;
         }
 
-        // fungsi untuk mencari data
-        void src(string dataIn){
+        // Print headers
+        cout << left << setw(10) << "ID"
+             << left << setw(20) << "Nama"
+             << left << setw(15) << "Tanggal Lahir"
+             << left << setw(15) << "Pekerjaan"
+             << left << setw(20) << "Alamat"
+             << left << setw(10) << "Jam Kerja" << endl;
+        cout << string(90, '-') << endl; // separator line
+
+            // Print data
+            while (getline(in, line)){
+                stringstream ss(line);
+                string idk, nama, tanggalLahir, pekerjaan, alamat, jamKerja;
+
+                getline(ss, idk, ',');
+                getline(ss, nama, ',');
+                getline(ss, tanggalLahir, ',');
+                getline(ss, pekerjaan, ',');
+                getline(ss, alamat, ',');
+                getline(ss, jamKerja, ',');
+
+                cout << left << setw(10) << idk
+                    << left << setw(20) << nama
+                    << left << setw(15) << tanggalLahir
+                    << left << setw(15) << pekerjaan
+                    << left << setw(20) << alamat
+                    << left << setw(10) << jamKerja << endl;
+            }
+            in.close();
+        }
+
+    // fungsi untuk mencari data
+    void src(string dataIn){
         string buffer;
         bool found = false;
         in.open(fileName);
@@ -108,49 +146,33 @@ class DBase{
             cout << "File tidak ditemukan" << endl;
         }
     }
-# Fungsi untuk mengedit karyawan
-def edit_karyawan(id, data):
-    file_name = "daftar_karyawan.txt"
-    found = False
-    
-    try:
-        with open(file_name, 'r') as file:
-            lines = file.readlines()
-        
-        with open(file_name, 'w') as file:
-            for line in lines:
-                if line.startswith(f"{id},"):
-                    file.write(f"{id},{data}\n")
-                    found = True
-                else:
-                    file.write(line)
-        
-        if found:
-            print(f"Karyawan dengan ID {id} berhasil diubah.")
-        else:
-            print(f"Karyawan dengan ID {id} tidak ditemukan.")
-    
-    except FileNotFoundError:
-        print("404 Not Found: File tidak ditemukan.")
+    // fungsi untuk edit file
+    void edit(string idk, Karyawan newData){
+        ifstream infile(fileName);
+        ofstream temp("temp.txt");
+        string line;
+        if(idk != ""){
+            while (getline(infile, line)){
+                if (line.find(idk) != string::npos){
+                    line = newData.getDataKaryawan();
+                }
+                temp << line << endl;
+            }
 
-# Fungsi untuk menampilkan menu utama
-def menu():
-    print("Menu Utama:")
-    print("1. Tambah Karyawan")
-    print("2. Hapus Karyawan")
-    print("3. Cari Karyawan")
-    print("4. Edit Karyawan")
-    print("5. Tampilkan Daftar Karyawan")
-    print("6. Keluar")
-
-# Contoh penggunaan menu dan edit karyawan
-menu()
+            infile.close();
+            temp.close();
+            remove(fileName.c_str());
+            rename("temp.txt", fileName.c_str());
+        }else{
+            cout << "Input Tidak Falid!!" << endl;
+        }
+    }
 
 
 
-        // fungsi untuk delete file
-        void deleteFile(){
-            ifstream infile(fileName);
+    // fungsi untuk delete file
+    void deleteFile(string dataIn){
+        ifstream infile(fileName);
         ofstream temp("temp.txt");
         string line;
 
@@ -164,24 +186,15 @@ menu()
         temp.close();
         remove(fileName.c_str());
         rename("temp.txt", fileName.c_str());
-        }
-
-        // fungsi untuk edit file
-        void editData(){
-            // code here
-        }
-
+    }
 
 };
 
-// fungsi untuk add file bagian menu
-void addData(){
-    // code here
-}
 
 // fungsi unput user
-string inputUser(){
-    // code here 
+Karyawan inputUser(){
+
+    return;
 }
 
 // fungsi menu
@@ -189,6 +202,11 @@ void menu(){
     // code here
 }
 
+void clear(){
+
+}
+
+// main fungsi
 int main(){
 
     DBase database("dataKaryawan.txt");
