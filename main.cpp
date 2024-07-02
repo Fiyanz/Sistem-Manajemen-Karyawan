@@ -108,6 +108,44 @@ class DBase{
             cout << "File tidak ditemukan" << endl;
         }
     }
+# Fungsi untuk mengedit karyawan
+def edit_karyawan(id, data):
+    file_name = "daftar_karyawan.txt"
+    found = False
+    
+    try:
+        with open(file_name, 'r') as file:
+            lines = file.readlines()
+        
+        with open(file_name, 'w') as file:
+            for line in lines:
+                if line.startswith(f"{id},"):
+                    file.write(f"{id},{data}\n")
+                    found = True
+                else:
+                    file.write(line)
+        
+        if found:
+            print(f"Karyawan dengan ID {id} berhasil diubah.")
+        else:
+            print(f"Karyawan dengan ID {id} tidak ditemukan.")
+    
+    except FileNotFoundError:
+        print("404 Not Found: File tidak ditemukan.")
+
+# Fungsi untuk menampilkan menu utama
+def menu():
+    print("Menu Utama:")
+    print("1. Tambah Karyawan")
+    print("2. Hapus Karyawan")
+    print("3. Cari Karyawan")
+    print("4. Edit Karyawan")
+    print("5. Tampilkan Daftar Karyawan")
+    print("6. Keluar")
+
+# Contoh penggunaan menu dan edit karyawan
+menu()
+
 
 
         // fungsi untuk delete file
@@ -200,41 +238,3 @@ int main(){
     }
     return 0;
 }
-# Fungsi untuk mengedit karyawan
-def edit_karyawan(id, data):
-    file_name = "daftar_karyawan.txt"
-    found = False
-    
-    try:
-        with open(file_name, 'r') as file:
-            lines = file.readlines()
-        
-        with open(file_name, 'w') as file:
-            for line in lines:
-                if line.startswith(f"{id},"):
-                    file.write(f"{id},{data}\n")
-                    found = True
-                else:
-                    file.write(line)
-        
-        if found:
-            print(f"Karyawan dengan ID {id} berhasil diubah.")
-        else:
-            print(f"Karyawan dengan ID {id} tidak ditemukan.")
-    
-    except FileNotFoundError:
-        print("404 Not Found: File tidak ditemukan.")
-
-# Fungsi untuk menampilkan menu utama
-def menu():
-    print("Menu Utama:")
-    print("1. Tambah Karyawan")
-    print("2. Hapus Karyawan")
-    print("3. Cari Karyawan")
-    print("4. Edit Karyawan")
-    print("5. Tampilkan Daftar Karyawan")
-    print("6. Keluar")
-
-# Contoh penggunaan menu dan edit karyawan
-menu()
-
