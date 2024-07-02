@@ -32,7 +32,7 @@ class Karyawan:
 
 // kelas untuk database
 
-// khari
+// fian
 class Dbase:
     // atribut database
     ofstream out // objek dari liblary fstream
@@ -64,7 +64,7 @@ class Dbase:
             in.close()
             print("404 not Found")
 
-    // novi
+    // fian
     // fungsi untuk membaca semua file file
     function readAllData(karyawan data):
         output, buffer string
@@ -79,7 +79,7 @@ class Dbase:
             
             print(output)
 
-    // zijah
+    // Meifa
     // fungsi untuk mencari data keryawan
     function search(id | nama):
         in.open(fileName)
@@ -105,7 +105,7 @@ class Dbase:
         print("404 not Found")
 
 
-
+//anom
 function menu():
     print("Menu Utama:")
     print("1. Tambah Karyawan")
@@ -115,7 +115,7 @@ function menu():
     print("5. Tampilkan Daftar Karyawan")
     print("6. Keluar")
 
-//anom
+//khari
 //fungsi untuk menerima input dari user
 function inputDataKaryawan() -> str:
     id = input("Masukan ID: ")
@@ -126,7 +126,15 @@ function inputDataKaryawan() -> str:
     jamKerja = input("Masukan Jam Kerja: ")
 
     return id, nama, tanggalLahir, alamat, pekerjaan, jamKerja
-
+// clear output
+function clear() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+//novi dan zizah
 // main fungsi
 function main():
 
