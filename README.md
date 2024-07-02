@@ -145,31 +145,32 @@ function main():
         // memilih menu
         userChoice = int(input("Masukan Angka:"))
 
-        // switch case
-        switch userChoice:
-            case 1:
+        // sistem menu
+        if userChoice == 1:
                 // menambahkan data karyawan
                 karyawan.add(inputDataKaryawan)
-            case 2:
+        else if userChoice == 2:
                 // delete data kryawan
                 deleteData = input("Masukan id/nama yang akan dihapus: ")
                 karyawan.delete(deleteData)
-            case 3:
+        else if userChoice == 3:
                 // mencari data
                 searchData = input("Masukan id/nama yang akan di cari: ")
                 karyawan.search(searchData)
-            case 4:
+        else if userChoice == 4:
                 // edit data karyawan
                 editData = input("Masukan id/nama data yang akan di edit: ")
                 karyawan.edit(editData)
-            case 5: 
+        else if userChoice == 5: 
                 // menampulkan data karyawan
                 karyawan.readAllData()
-            case 6:
+        else if userChoice == 6:
                 // keluar program
+                clear()
                 print("Program Selesai")
-                break
+        else:
+            clear()
+            print("Pilihan tidak valid")
 
 ```
 
-## Keterangan
