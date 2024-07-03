@@ -191,10 +191,25 @@ class DBase{
 };
 
 
-// fungsi unput user
+// fungsi input user
 Karyawan inputUser(){
+Karyawan inputUser(){
+    string idk, nama, tanggalLahir, pekerjaan, alamat, jamKerja, dump;
 
-    return;
+    cout << "Masukan ID: "; 
+    getline(cin, idk);
+    cout << "Masukan Nama: "; 
+    getline(cin, nama);
+    cout << "Masukan Tanggal Lahir: "; 
+    getline(cin, tanggalLahir);
+    cout << "Masukan Pekerjaan: ";
+    getline(cin, pekerjaan);
+    cout << "Masukan Alamat: ";
+    getline(cin, alamat);
+    cout << "Masukan Jam Kerja: ";
+    getline(cin, jamKerja);
+
+    return Karyawan(idk, nama, tanggalLahir, pekerjaan, alamat, jamKerja);
 }
 
 // fungsi menu
