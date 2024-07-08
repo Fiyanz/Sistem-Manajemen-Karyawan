@@ -106,14 +106,14 @@ class Dbase:
 
 
 //anom
-function menu():
-    print("Menu Utama:")
-    print("1. Tambah Karyawan")
-    print("2. Hapus Karyawan")
-    print("3. Cari karyawan")
-    print("4. Edit Karyawan")
-    print("5. Tampilkan Daftar Karyawan")
-    print("6. Keluar")
+void menu(){
+    cout << "[1] Tambahkan Data Karyawan" << endl;
+    cout << "[2] Edit Data Karyawan" << endl;
+    cout << "[3] Cari Data Karyawan" << endl;
+    cout << "[4] Hapus Data Karyawan" << endl;
+    cout << "[5] Menampilkan Data Karyawan" << endl;
+    cout << "[6] Exit" << endl;
+}
 
 //khari
 //fungsi untuk menerima input dari user
