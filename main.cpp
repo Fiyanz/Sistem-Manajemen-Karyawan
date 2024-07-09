@@ -193,7 +193,6 @@ class DBase{
 
 // fungsi input user
 Karyawan inputUser(){
-Karyawan inputUser(){
     string idk, nama, tanggalLahir, pekerjaan, alamat, jamKerja, dump;
 
     cout << "Masukan ID: "; 
@@ -214,11 +213,23 @@ Karyawan inputUser(){
 
 // fungsi menu
 void menu(){
-    // code here
+    cout << "==============================" << endl;
+    cout << "       SISTEM MANAJEMEN       " << endl;
+    cout << "==============================" << endl;
+    cout << "[1] Tambahkan Data Karyawan" << endl;
+    cout << "[2] Edit Data Karyawan" << endl;
+    cout << "[3] Cari Data Karyawan" << endl;
+    cout << "[4] Hapus Data Karyawan" << endl;
+    cout << "[5] Menampilkan Data Karyawan" << endl;
+    cout << "[6] Exit" << endl;
 }
 
 void clear(){
-
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
 
 // main fungsi

@@ -1,3 +1,4 @@
-34,kazu,12/08/24,kebumen
-45,dj,23/05/1936,dorowati
+34,kazu,12/08/2004,waiter,kebumen,8
+
 56,yay,12/07/2005,kebumen
+43,jahe,14/09/2004,alskd,akejr,9
